@@ -1,622 +1,301 @@
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dhamar | Personal Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Space Grotesk',sans-serif;
-    background:#FFF7D6;
-    color:#111;
-    line-height:1.6;
-}
-
-/* ====================== */
-
-:root{
-    --yellow:#FFD93D;
-    --pink:#FF5D8F;
-    --blue:#54A9FF;
-    --green:#8DF56A;
-    --orange:#FF9B42;
-    --black:#111;
-}
-
-.container{
-    width:min(1150px,92%);
-    margin:auto;
-}
-
-section{
-    padding:90px 0;
-}
-
-h1,h2,h3{
-    line-height:1;
-}
-
-h2{
-    font-size:2.5rem;
-    margin-bottom:30px;
-    display:inline-block;
-    background:var(--yellow);
-    border:4px solid var(--black);
-    box-shadow:8px 8px 0 var(--black);
-    padding:12px 18px;
-}
-
-p{
-    font-size:1rem;
-}
-
-/* ====================== */
-
-nav{
-    position:sticky;
-    top:0;
-    z-index:999;
-    background:white;
-    border-bottom:4px solid black;
-}
-
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
-}
-
-.logo{
-    font-weight:800;
-    font-size:1.6rem;
-}
-
-.logo span{
-    color:#ff0066;
-}
-
-nav ul{
-    display:flex;
-    gap:18px;
-    list-style:none;
-    flex-wrap:wrap;
-}
-
-nav a{
-    text-decoration:none;
-    color:#111;
-    font-weight:700;
-}
-
-nav a:hover{
-    color:#ff0066;
-}
-
-/* ====================== */
-
-.hero{
-    display:grid;
-    grid-template-columns:1fr 420px;
-    gap:50px;
-    align-items:center;
-}
-
-.hero h1{
-    font-size:4rem;
-    margin-bottom:15px;
-}
-
-.hero p{
-    margin:25px 0;
-    font-size:1.1rem;
-}
-
-.badge{
-    display:inline-block;
-    background:var(--green);
-    border:4px solid black;
-    box-shadow:6px 6px 0 black;
-    padding:8px 14px;
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-.hero-image{
-    background:var(--pink);
-    border:5px solid black;
-    box-shadow:12px 12px 0 black;
-    height:420px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:9rem;
-    user-select:none;
-}
-
-/* ====================== */
-
-.button{
-    display:inline-block;
-    text-decoration:none;
-    color:black;
-    background:var(--yellow);
-    padding:16px 28px;
-    border:4px solid black;
-    box-shadow:7px 7px 0 black;
-    font-weight:800;
-    transition:.15s;
-}
-
-.button:hover{
-    transform:translate(5px,5px);
-    box-shadow:2px 2px 0 black;
-}
-
-/* ====================== */
-
-.about-box{
-    background:white;
-    border:4px solid black;
-    box-shadow:10px 10px 0 black;
-    padding:30px;
-}
-
-/* ====================== */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    border:4px solid black;
-    box-shadow:8px 8px 0 black;
-    padding:25px;
-    transition:.15s;
-    cursor:pointer;
-}
-
-.card h3{
-    margin-bottom:12px;
-    font-size:1.3rem;
-}
-
-.card:nth-child(1){
-    background:var(--blue);
-}
-
-.card:nth-child(2){
-    background:var(--green);
-}
-
-.card:nth-child(3){
-    background:var(--orange);
-}
-
-.card:nth-child(4){
-    background:var(--pink);
-}
-
-.card.active,
-.card:hover{
-    transform:translate(-5px,-5px) rotate(-1deg);
-    box-shadow:14px 14px 0 black;
-}
-
-/* ====================== */
-
-.project{
-    background:white;
-    border:4px solid black;
-    box-shadow:8px 8px 0 black;
-    overflow:hidden;
-    transition:.15s;
-}
-
-.project:hover{
-    transform:translateY(-8px);
-    box-shadow:14px 14px 0 black;
-}
-
-.project-top{
-    height:180px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:4rem;
-    border-bottom:4px solid black;
-}
-
-.project:nth-child(1) .project-top{
-    background:var(--yellow);
-}
-
-.project:nth-child(2) .project-top{
-    background:var(--blue);
-}
-
-.project:nth-child(3) .project-top{
-    background:var(--pink);
-}
-
-.project-body{
-    padding:22px;
-}
-
-.project-body h3{
-    margin-bottom:10px;
-}
-
-/* ====================== */
-
-.contact-box{
-    background:var(--yellow);
-    border:5px solid black;
-    box-shadow:10px 10px 0 black;
-    padding:35px;
-    text-align:center;
-}
-
-.contact-box p{
-    margin:12px 0;
-}
-
-.contact-btn{
-    margin-top:18px;
-}
-
-/* ====================== */
-
-footer{
-    text-align:center;
-    padding:35px;
-    font-weight:700;
-}
-
-/* ====================== */
-
-@media(max-width:900px){
-
-.hero{
-    grid-template-columns:1fr;
-}
-
-.hero-image{
-    height:320px;
-}
-
-.hero h1{
-    font-size:3rem;
-}
-
-nav ul{
-    justify-content:center;
-}
-
-.navbar{
-    flex-direction:column;
-    gap:18px;
-}
-
-}
-
-@media(max-width:500px){
-
-.hero h1{
-    font-size:2.4rem;
-}
-
-.hero-image{
-    font-size:6rem;
-}
-
-h2{
-    font-size:2rem;
-}
-
-.button{
-    width:100%;
-    text-align:center;
-}
-
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhamar | Personal Portfolio</title>
+
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              500: '#3b82f6',
+              600: '#2563eb',
+            }
+          }
+        }
+      }
+    } 
+  </script>
 </head>
 
-<body>
-
-<nav>
-<div class="container navbar">
-
-<div class="logo">
-Profil DHAMAR<span>:></span>
-</div>
-
-<ul>
-<li><a href="#about">Tentang</a></li>
-<li><a href="#skills">Skill</a></li>
-<li><a href="#projects">Proyek</a></li>
-<li><a href="#contact">Kontak</a></li>
-</ul>
-
-</div>
-</nav>
-
-<!-- HERO -->
-
-<section>
-
-<div class="container hero">
-
-<div>
-
-<div class="badge">
-👋 Halo, Selamat Datang!
-</div>
-
-<h1>
-  <br>
-  saya
-<span style="background:#FFD93D;border:4px solid black;padding:2px 10px;">Dhamar</span>
-</h1>
-
-<p>
-Saya adalah seseorang yang tertarik pada dunia teknologi, web development,
-desain antarmuka, dan berbagai proyek kreatif digital.
-Saya senang belajar hal baru serta membuat sesuatu yang bermanfaat dan menarik.
-</p>
-
-<a href="#projects" class="button">
-Lihat Portofolio →
-</a>
-
-</div>
-
-<div class="hero-image">
-😎
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="container">
-
-<h2>Tentang Saya</h2>
-
-<div class="about-box">
-
-<p>
-Halo! Nama saya <b>Dhamar</b>. Saya memiliki minat besar dalam dunia teknologi,
-pemrograman, serta desain website modern.
-Saya senang mengeksplorasi berbagai bahasa pemrograman, dan akan terus mengembangkan kemampuan
-untuk membuat website yang cepat, menarik, dan responsif.
-</p>
-
-<br>
-
-<p>
-Fokus saya adalah meningkatkan kemampuan dalam bidang pemrograman yang sangat relevan di kondisi sekarang ini.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<div class="container">
-
-<h2>Skill</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>💻 HTML5</h3>
-<p>Membangun struktur website modern yang rapi dan semantik.</p>
-</div>
-
-<div class="card">
-<h3>🎨 CSS3</h3>
-<p>Mendesain tampilan responsif dengan gaya kreatif dan unik.</p>
-</div>
-
-<div class="card">
-<h3>⚡ JavaScript</h3>
-<p>Membuat website menjadi interaktif dan lebih hidup.</p>
-</div>
-
-<div class="card">
-<h3>🚀 Problem Solving</h3>
-<p>Belajar teknologi baru dan menyelesaikan tantangan secara efektif.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<div class="container">
-
-<h2>Proyek</h2>
-
-<div class="grid">
-
-<div class="project">
-
-<div class="project-top">
-🌐
-</div>
-
-<div class="project-body">
-
-<h3>Website Portfolio</h3>
-
-<p>
-Website pribadi modern dengan desain sederhana yang responsif.
-</p>
-
-</div>
-
-</div>
-
-<div class="project">
-
-<div class="project-top">
-📱
-</div>
-
-<div class="project-body">
-
-<h3>Landing Page</h3>
-
-<p>
-Landing page sederhana dengan performa tinggi dan tampilan menarik.
-</p>
-
-</div>
-
-</div>
-
-<div class="project">
-
-<div class="project-top">
-💡
-</div>
-
-<div class="project-body">
-
-<h3>Eksperimen UI</h3>
-
-<p>
-Kumpulan eksplorasi desain antarmuka modern menggunakan HTML, CSS, dan JavaScript.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<div class="container">
-
-<h2>Kontak</h2>
-
-<div class="contact-box">
-
-<h3>Mari Terhubung!</h3>
-
-<p>
-Terima kasih telah mengunjungi portofolio saya.
-Jika ingin berdiskusi atau bekerja sama, jangan ragu untuk menghubungi saya.
-</p>
-
-  <!-- <a class="button contact-btn" href="mailto:rubikesper@gmail.com"> -->
-  
-<a class="button contact-btn" href="https://wa.me/message/TQQFB3DRFDJAJ1">
-📧 Hubungi Saya
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 • Dibuat oleh Dhamar menggunakan HTML, CSS & JavaScript
-</footer>
-
-<script>
-// Efek klik pada card skill
-document.querySelectorAll(".card").forEach(card=>{
-    card.addEventListener("click",()=>{
-        card.classList.toggle("active");
+<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-blue-200 selection:text-blue-900">
+
+  <nav
+    class="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <!-- logo-->
+      <div class="text-xl font-bold tracking-tight text-gray-900">
+        <a href="#" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <span
+            class="w-8 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center text-sm">D</span>Dhamar.
+        </a>
+      </div>
+
+      <!--menu bar-->
+      <ul class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+        <li><a href="#about" class="hover:text-brand-600 transition-colors">Tentang</a></li>
+        <li><a href="#skills" class="hover:text-brand-600 transition-colors">Skill</a></li>
+        <li><a href="#projects" class="hover:text-brand-600 transition-colors">Proyek</a></li>
+        <li><a href="#contact" class="hover:text-brand-600 transition-colors">Kontak</a></li>
+      </ul>
+
+      <!--navigasi hp-->
+      <div class="md:hidden">
+        <button class="text-gray-600 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!--ini jeda antara navbar dan hero section-- -->
+  <section class="relative pt-32 pb-20 lg:pb-48 lg:pb-32 px-6 overflow-hidden">
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-100/40 rounded-full blur-3xl -z-10">
+    </div>
+    <div class="max-w-4xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+      <!--text hero-->
+      <div class="flex-1 text-center md:text-left">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-brand-600 text-sm font-medium mb-6 border border-blue-100">
+          <span>👋</span> Halo, Selamat Datang!
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">saya
+          <span class="relative inline-block whitespace-nowrap">
+            <span
+              class="absolute inset-x-0 bottom-2 h-3/5 bg-yellow-300/80 -z-10 transform -skew-x-12 rounded-sm"></span>
+            <span class="relative">Dhamar</span>
+          </span>
+        </h1>
+        <!--batas-->
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
+          Seorang antusias teknologi yang tertarik pada web development, desain antarmuka, dan berbagai proyek kreatif
+          digital. Saya senang belajar hal baru.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+          <a href="#projects"
+            class="w-full sm:w-auto px-8 py-3 rounded-full bg-gray-900 text-white font-medium hover:bg-brand-600 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+            Lihat Portofolio →
+          </a>
+          <a href="#contact"
+            class="w-full sm:w-auto px-8 py-3 rounded-full bg-white text-gray-900 font-medium border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300">
+            Hubungi saya
+          </a>
+        </div>
+      </div>
+      <!--hero image-->
+      <div
+        class="w-48 h-48 md:w-72 md:h-72 bg-gradient-to-tr from-brand-100 to-blue-50 rounded-full flex items-center justify-center text-7xl md:text-9xl shadow-inner border-8 border-white">
+        <img src="JieeHar-Profile.png" alt="Foto Dhamar" class="w-full h-full object-cover rounded-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- about woy <-->
+  <section id="about" class="py-20 px-6 bg-white border-y border-gray-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-3">Tentang Saya</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Mengenal Lebih Dekat</h3>
+
+      <div class="bg-gray-50 rounded-3xl p-8 md:p-12 text-left shadow-sm border border-gray-100">
+        <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+          Halo! Nama saya <strong class="text-gray-900">Dhamar</strong>. Saya memiliki minat besar dalam dunia
+          teknologi, pemrograman, serta desain website modern.
+          Saya senang mengeksplorasi berbagai bahasa pemrograman, dan akan terus mengembangkan kemampuan untuk membuat
+          website yang cepat, menarik, dan responsif.
+        </p>
+        <p class="text-gray-600 leading-relaxed text-lg">
+          Fokus utama saya saat ini adalah terus meningkatkan kemampuan dalam bidang pemrograman yang sangat relevan
+          dengan kebutuhan industri digital modern.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- menu skill -->
+  <section id="skills" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-3">Keahlian</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Skill & Teknologi</h3>
+      </div>
+
+      <!-- Grid Layout untuk Card -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Card 1 -->
+        <div
+          class="skill-card group bg-white p-8 rounded-2xl border border-gray-100 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-500/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <div
+            class="w-14 h-14 bg-orange-50 text-2xl rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            💻</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">HTML5</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Membangun struktur website modern yang rapi, semantik, dan
+            ramah SEO.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="skill-card group bg-white p-8 rounded-2xl border border-gray-100 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-500/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <div
+            class="w-14 h-14 bg-blue-50 text-2xl rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            🎨</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">CSS3 / Tailwind</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Mendesain tampilan responsif, elegan, dan estetik dengan
+            framework modern.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="skill-card group bg-white p-8 rounded-2xl border border-gray-100 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-500/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <div
+            class="w-14 h-14 bg-yellow-50 text-2xl rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            ⚡</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">JavaScript</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Membuat website menjadi interaktif, dinamis, dan lebih hidup
+            untuk user.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div
+          class="skill-card group bg-white p-8 rounded-2xl border border-gray-100 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-500/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          <div
+            class="w-14 h-14 bg-green-50 text-2xl rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            🚀</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Problem Solving</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Terbiasa belajar teknologi baru dan menyelesaikan tantangan
+            secara efektif.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- daftar projek -->
+  <section id="projects" class="py-20 px-6 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-3">Portofolio</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Proyek Terbaru</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Project 1 -->
+        <div
+          class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="h-48 bg-gray-200 flex items-center justify-center text-5xl">🌐</div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Website Portfolio</h3>
+            <p class="text-gray-600 text-sm mb-4">Website pribadi modern dengan desain sederhana, tipografi bersih, dan
+              responsif.</p>
+            <a href="#" class="text-brand-600 text-sm font-medium hover:underline inline-flex items-center gap-1">Lihat
+              Detail <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                </path>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div
+          class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="h-48 bg-gray-200 flex items-center justify-center text-5xl">📱</div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Landing Page</h3>
+            <p class="text-gray-600 text-sm mb-4">Landing page sederhana untuk produk digital dengan performa tinggi dan
+              konversi optimal.</p>
+            <a href="#" class="text-brand-600 text-sm font-medium hover:underline inline-flex items-center gap-1">Lihat
+              Detail <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                </path>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div
+          class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="h-48 bg-gray-200 flex items-center justify-center text-5xl">💡</div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Eksperimen UI</h3>
+            <p class="text-gray-600 text-sm mb-4">Kumpulan eksplorasi desain antarmuka modern menggunakan animasi halus
+              CSS & JS.</p>
+            <a href="#" class="text-brand-600 text-sm font-medium hover:underline inline-flex items-center gap-1">Lihat
+              Detail <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                </path>
+              </svg></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto bg-gray-900 rounded-3xl p-10 md:p-16 text-center shadow-2xl relative overflow-hidden">
+      <!-- Ornamen aksen -->
+      <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-brand-500 rounded-full opacity-20 blur-2xl"></div>
+      <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-blue-400 rounded-full opacity-20 blur-2xl"></div>
+
+      <div class="relative z-10">
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Mari Berkolaborasi!</h2>
+        <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
+          Terima kasih telah mengunjungi portofolio saya. Jika Anda memiliki proyek, ide, atau sekadar ingin berdiskusi
+          santai, jangan ragu untuk menghubungi saya.
+        </p>
+
+        <a href="https://wa.me/message/TQQFB3DRFDJAJ1" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-500 text-white font-semibold hover:bg-brand-400 hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+            </path>
+          </svg>
+          Hubungi via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!--footer-->
+  <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200 bg-white">
+    © 2026 • Dibuat oleh Dhamar menggunakan HTML & TailwindCss
+  </footer>
+
+  <script>
+    document.querySelectorAll(".skill-card").forEach(card => {
+      card.addEventListener("click", () => {
+        card.classList.toggle("ring-4");
+        card.classList.toggle("ring-brand-200");
+        card.classList.toggle("border-brand-500");
+      });
     });
-});
-
-// Animasi tombol
-document.querySelectorAll(".button").forEach(btn=>{
-    btn.addEventListener("mouseenter",()=>{
-        btn.style.background="#FF5D8F";
-    });
-
-    btn.addEventListener("mouseleave",()=>{
-        btn.style.background="#FFD93D";
-    });
-});
-
-// Efek muncul saat scroll
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.animate([
-                {
-                    opacity:0,
-                    transform:"translateY(40px)"
-                },
-                {
-                    opacity:1,
-                    transform:"translateY(0)"
-                }
-            ],{
-                duration:500,
-                easing:"ease-out",
-                fill:"forwards"
-            });
-
-            observer.unobserve(entry.target);
-        }
-    });
-},{
-    threshold:0.15
-});
-
-document.querySelectorAll("section, .card, .project").forEach(el=>{
-    observer.observe(el);
-});
-</script>
+  </script>
 
 </body>
+
 </html>
