@@ -21,7 +21,8 @@ Proyek ini dibangun menggunakan teknologi web fundamental untuk memastikan perfo
 
 *(Ganti URL gambar di bawah ini dengan screenshot asli dari website portofoliomu. Kamu bisa mengunggah gambarnya langsung ke dalam repositori GitHub.)*
 
-![Web Profile Preview](https://via.placeholder.com/800x450.png?text=Screenshot+Web+Profile)
+![Web Profile Preview]
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/94c6f25c-3bf3-481c-99e9-3ab9a2c02e2a" />
 
 ## 🚀 Cara Menjalankan Secara Lokal
 
