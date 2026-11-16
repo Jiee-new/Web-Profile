@@ -126,6 +126,7 @@
         <li><a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Tentang</a></li>
         <li><a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Skill</a></li>
         <li><a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Proyek</a></li>
+        <li><a href="#coming-soon" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Coming Soon</a></li>
         <li><a href="#github" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">GitHub</a></li>
         <li><a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Kontak</a></li>
         <li>
@@ -180,6 +181,8 @@
         <li><a href="#skills" class="block mobile-link hover:text-brand-600 dark:hover:text-brand-400">Skill</a></li>
         <li><a href="#projects" class="block mobile-link hover:text-brand-600 dark:hover:text-brand-400">Proyek</a>
         </li>
+        <li><a href="#coming-soon" class="block mobile-link hover:text-brand-600 dark:hover:text-brand-400">Coming
+            Soon</a></li>
         <li><a href="#github" class="block mobile-link hover:text-brand-600 dark:hover:text-brand-400">GitHub</a></li>
         <li><a href="#contact" class="block mobile-link hover:text-brand-600 dark:hover:text-brand-400">Kontak</a>
         </li>
@@ -242,7 +245,7 @@
 
         <!-- quick stats -->
         <div
-          class="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0 border-t border-slate-200 dark:border-slate-800 pt-6">
+          class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-lg mx-auto md:mx-0 border-t border-slate-200 dark:border-slate-800 pt-6">
           <div>
             <p class="text-2xl font-bold text-slate-900 dark:text-white">3</p>
             <p class="text-xs text-slate-500 dark:text-slate-500">Repo Publik</p>
@@ -253,7 +256,11 @@
           </div>
           <div>
             <p class="text-2xl font-bold text-slate-900 dark:text-white">4</p>
-            <p class="text-xs text-slate-500 dark:text-slate-500">Proyek Utama</p>
+            <p class="text-xs text-slate-500 dark:text-slate-500">Proyek Selesai</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-slate-900 dark:text-white">1</p>
+            <p class="text-xs text-slate-500 dark:text-slate-500">Coming Soon</p>
           </div>
         </div>
       </div>
@@ -563,6 +570,24 @@
     </div>
   </section>
 
+  <!-- ================= COMING SOON ================= -->
+  <!-- Kartu proyek di bawah ini dirender otomatis dari array `upcomingProjects`
+       di bagian script paling bawah. Tinggal edit array itu untuk menambah proyek baru. -->
+  <section id="coming-soon" class="py-20 px-6 bg-white dark:bg-slate-900/40 border-y border-slate-100 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14" data-reveal>
+        <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-3">Sedang Dikembangkan</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Coming Soon</h3>
+        <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
+          Proyek yang sedang saya bangun. Pantau terus — begitu rilis, link demo &amp; repo-nya akan aktif di sini.
+        </p>
+      </div>
+
+      <!-- Grid ini diisi otomatis oleh JavaScript -->
+      <div id="upcoming-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+    </div>
+  </section>
+
   <!-- ================= GITHUB ================= -->
   <section id="github" class="py-20 px-6">
     <div class="max-w-6xl mx-auto">
@@ -719,6 +744,97 @@
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => menu.classList.add('hidden'));
     });
+
+    // =========================================================
+    // DAFTAR PROYEK COMING SOON
+    // ---------------------------------------------------------
+    // Cara menambah proyek baru:
+    //   1. Salin satu objek { ... } di bawah, tempel setelahnya.
+    //   2. Isi title, subtitle, description, icon, dan tech.
+    //   3. Kalau sudah ada demo, isi `demo` dengan URL-nya.
+    //   4. Kalau repo sudah public, set `repoPrivate: false`.
+    //   5. Commit & push -> Vercel otomatis deploy.
+    //
+    // Kalau proyek sudah rilis dan ingin dipindah ke section
+    // "Proyek Pilihan", hapus dari array ini lalu buat kartu baru
+    // di section #projects.
+    // =========================================================
+    const upcomingProjects = [
+      {
+        title: "PeTa SKANIDA",
+        subtitle: "Pengelolaan Tamu SMK Negeri 2 Magelang",
+        description: "Sistem pengelolaan tamu untuk mencatat kunjungan, menerbitkan buku tamu digital, dan merapikan administrasi tamu sekolah. Masih dalam tahap pengembangan dan akan segera dirilis.",
+        icon: "🪪",
+        tech: ["Web App", "Sistem Informasi", "SMKN 2 Magelang"],
+        status: "Dalam pengembangan",
+        demo: "",
+        repo: "https://github.com/massmoses25-maker/Peta-skanida",
+        repoPrivate: true
+      }
+    ];
+
+    function renderUpcomingProjects() {
+      const grid = document.getElementById("upcoming-grid");
+      if (!grid) return;
+
+      grid.innerHTML = upcomingProjects.map(project => {
+        const techTags = project.tech.map(tech => `
+          <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-600 dark:text-slate-300">${tech}</span>
+        `).join("");
+
+        const demoButton = project.demo
+          ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-600 text-white text-sm font-semibold hover:bg-brand-700 transition-colors">
+               Coba Sekarang
+               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"></path>
+               </svg>
+             </a>`
+          : `<span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-sm font-semibold cursor-default">
+               🚧 Segera hadir
+             </span>`;
+
+        const repoLink = project.repo
+          ? (project.repoPrivate
+            ? `<span class="text-xs font-medium text-slate-400 dark:text-slate-500 inline-flex items-center gap-1">🔒 Repo masih privat</span>`
+            : `<a href="${project.repo}" target="_blank" rel="noopener noreferrer"
+                 class="text-brand-600 dark:text-brand-400 text-sm font-semibold hover:underline inline-flex items-center gap-1">Repo ↗</a>`)
+          : "";
+
+        return `
+          <article data-reveal
+            class="relative overflow-hidden rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-7 md:p-8 flex flex-col hover:border-brand-300 dark:hover:border-brand-600 transition-colors">
+            <div class="absolute -top-10 -right-10 w-36 h-36 bg-brand-100 dark:bg-brand-600/10 rounded-full blur-2xl"></div>
+
+            <div class="relative flex items-start justify-between gap-4 mb-5">
+              <div class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-2xl flex items-center justify-center shadow-sm">
+                ${project.icon}
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-semibold border border-amber-100 dark:border-amber-500/20">
+                <span class="relative flex h-1.5 w-1.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-500"></span>
+                </span>
+                ${project.status}
+              </span>
+            </div>
+
+            <h4 class="relative text-xl font-bold text-slate-900 dark:text-white mb-1">${project.title}</h4>
+            <p class="relative text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-4">${project.subtitle}</p>
+            <p class="relative text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">${project.description}</p>
+
+            <div class="relative flex flex-wrap gap-2 mb-6">${techTags}</div>
+
+            <div class="relative mt-auto flex flex-wrap items-center justify-between gap-3 pt-5 border-t border-slate-200 dark:border-slate-800">
+              ${demoButton}
+              ${repoLink}
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    renderUpcomingProjects();
 
     // ---------- animasi reveal saat scroll ----------
     const revealItems = document.querySelectorAll('[data-reveal]');
