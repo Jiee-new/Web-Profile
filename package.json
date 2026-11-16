@@ -1,0 +1,14 @@
+{
+  "name": "web-profile",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portofolio Dhamar (Jieehar / Jiee-new) — HTML, Tailwind CSS, dan Vanilla JS tanpa framework.",
+  "scripts": {
+    "build:css": "tailwindcss -i tools/input.css -o tools/build.css --minify && node tools/inline-css.mjs",
+    "watch:css": "tailwindcss -i tools/input.css -o tools/build.css --watch",
+    "serve": "python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
