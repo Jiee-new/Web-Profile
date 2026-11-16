@@ -1,3 +1,7 @@
 node_modules/
-tools/build.css
+dist/
+.vite/
+.env
+.env.local
+*.local
 .DS_Store
