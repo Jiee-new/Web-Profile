@@ -1,30 +1,62 @@
 # 🚀 Web-Profile
 
-Sebuah website portofolio pribadi interaktif dengan pendekatan gaya desain *Neobrutalism* yang berani dan unik. Website ini dibangun untuk menampilkan proyek, kemampuan (skills), dan perjalanan di dunia pengembangan perangkat lunak secara modern dan responsif.
+Portofolio pribadi **Dhamar (Jieehar / [@Jiee-new](https://github.com/Jiee-new))** — web & Android developer. Menampilkan proyek nyata yang sudah dirilis, keahlian, serta seluruh riwayat repositori GitHub.
 
 ## ✨ Fitur Utama
 
-- **Desain Neobrutalism:** Antarmuka dengan karakteristik warna kontras, bayangan tegas, dan tipografi yang kuat.
-- **Sepenuhnya Responsif:** Tampilan yang menyesuaikan dengan mulus di berbagai ukuran layar (Desktop, Tablet, maupun Mobile).
-- **Interaktif & Ringan:** Animasi transisi dan interaksi UI yang mulus tanpa mengorbankan performa kecepatan muat halaman.
-- **Project Showcase:** Galeri khusus untuk menampilkan daftar proyek secara terstruktur.
+- **Dark Mode:** Toggle terang/gelap yang tersimpan di `localStorage` dan mengikuti preferensi sistem saat pertama dibuka.
+- **Sepenuhnya Responsif:** Tampilan rapi di desktop, tablet, dan mobile, lengkap dengan menu hamburger.
+- **Animasi Reveal:** Elemen muncul halus saat di-scroll (menghormati `prefers-reduced-motion`).
+- **Featured Project:** Sorotan untuk **SIA SMKN 2 Magelang** beserta tautan langsung.
+- **Showcase Proyek & Repo:** Kartu proyek dengan tech stack, live demo, dan link GitHub.
+- **Riwayat Repositori:** Daftar seluruh repo publik `@Jiee-new`.
+- **Ringan:** Satu file HTML, tanpa build step maupun dependensi Node.js.
 
 ## 🛠️ Tech Stack
 
-Proyek ini dibangun menggunakan teknologi web fundamental untuk memastikan performa yang cepat dan kustomisasi maksimal:
-
-- **HTML5** - Struktur utama website
-- **CSS3 / Tailwind CSS** - Styling dan tata letak responsif
-- **JavaScript (Vanilla JS)** - Logika interaktif dan manipulasi DOM
+- **HTML5** — struktur website
+- **CSS3 / Tailwind CSS (CDN)** — styling dan tata letak responsif
+- **JavaScript (Vanilla JS)** — dark mode, menu mobile, dan animasi scroll
 
 ## 📸 Preview
-![Web Profile Preview]
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/94c6f25c-3bf3-481c-99e9-3ab9a2c02e2a" />
+
+Buka `index.html` di browser untuk melihat tampilan terbaru.
 
 ## 🚀 Cara Menjalankan Secara Lokal
 
-Karena proyek ini berbasis web native murni, kamu tidak perlu menginstal dependensi khusus (seperti Node.js) dan bisa menjalankannya langsung di berbagai environment.
+Tidak perlu instalasi dependensi.
 
 1. **Clone repositori ini:**
    ```bash
-   git clone [https://github.com/Jiee-new/Web-Profile.git](https://github.com/Jiee-new/Web-Profile.git)
+   git clone https://github.com/Jiee-new/Web-Profile.git
+   cd Web-Profile
+   ```
+
+2. **Buka langsung di browser:**
+   ```bash
+   xdg-open index.html   # Linux
+   open index.html       # macOS
+   ```
+   Atau jalankan server statis sederhana:
+   ```bash
+   python3 -m http.server 8080
+   ```
+   Lalu buka `http://localhost:8080`.
+
+## 📁 Struktur
+
+```
+Web-Profile/
+├── index.html          # Seluruh halaman portofolio
+├── JieeHar-Profile.png # Foto profil
+└── README.md
+```
+
+## 🔗 Demo
+
+- Live: [first-project-lac-theta.vercel.app](https://first-project-lac-theta.vercel.app)
+- Proyek unggulan: [simakademik.lunaradev.my.id](https://simakademik.lunaradev.my.id/)
+
+---
+
+© 2026 Dhamar (Jieehar). Dibuat dengan HTML & Tailwind CSS.
